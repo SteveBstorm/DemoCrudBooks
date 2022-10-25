@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DemoCrudBooks.Models.Livre>
+
+<h2>Liste des livres</h2>
+<a asp-action="Create" class="btn btn-outline-primary">Ajouter un livre</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Titre</td>
+            <td>Auteur</td>
+            
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Livre livre in Model)
+        {
+            <tr>
+                <td>@livre.Titre</td>
+                <td>@livre.Auteur</td>
+                
+                <td>
+                    <a asp-action="Detail" asp-route-id="@livre.Id" class="btn btn-outline-info">Détails</a>
+                    <a asp-action="Update" asp-route-id="@livre.Id" class="btn btn-outline-warning">Modifier</a>
+                    <a asp-action="Delete" asp-route-id="@livre.Id" class="btn btn-outline-danger">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
